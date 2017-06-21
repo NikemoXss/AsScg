@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    android:orientation="vertical" >
+
+    <include layout="@layout/page_head_sx" />
+
+    <LinearLayout
+        android:id="@+id/et_dh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/login_ed_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/login_zh_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <!--
+                     <EditText
+                    android:id="@+id/login_zh_sx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/btn_yj_et"
+                    android:drawableLeft="@drawable/icon_03"
+                    android:drawablePadding="10dp"
+                    android:hint="请输入账号..."
+                    android:singleLine="true" >
+                    <requestFocus />
+                </EditText>
+                -->
+
+                <com.ys.www.asscg.view.EditTextWithDel
+                    android:id="@+id/login_zh_sx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:drawablePadding="10dp"
+					android:background="@drawable/btn_yj_et"
+                    android:hint="请输入账号"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/login_pwd_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" >
+                
+                
+                 <com.ys.www.asscg.view.EditTextWithDel
+                    android:id="@+id/login_mm_sx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:drawablePadding="10dp"
+                      android:hint="请输入密码"
+                     android:password="true"
+                     android:background="@drawable/btn_yj_et"
+                    android:singleLine="true" />
+
+<!--                 <EditText
+                    android:id="@+id/login_mm_sx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@drawable/btn_yj_et"
+                    android:drawableLeft="@drawable/icon_05"
+                    android:drawablePadding="10dp"
+                    android:hint="请输入密码..."
+                    android:password="true"
+                    android:singleLine="true" /> -->
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/remember_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" >
+
+            <CheckBox
+                android:id="@+id/cb_login_sx"
+                style="@style/zdwz10Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="记住密码" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="right" >
+
+                <TextView
+                    android:id="@+id/register_scg"
+                    style="@style/gray10Text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/login_info2" />
+
+                <TextView
+                    android:id="@+id/forget_pwd_sx"
+                    style="@style/gray10Text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/login_info3" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/login_sx_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_yj"
+            android:text="登录"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</LinearLayout>
