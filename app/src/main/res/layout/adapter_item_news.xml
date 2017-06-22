@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/back" >
+
+    <RelativeLayout
+        android:id="@+id/item_newVersion222"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dip"
+        android:background="@drawable/news_item_click"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/flg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:clickable="true"
+            android:scaleType="matrix"
+            android:src="@drawable/chevron_default" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="60dp"
+            android:text="当前版本号:"
+            android:textColor="@color/new_black_color"
+            android:textSize="18sp"
+             />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:paddingTop="10dp"
+            android:text="关于我们"
+            android:textColor="@color/new_gray_color"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.ys.www.asscg.R;
 import com.ys.www.asscg.base.BaseActivity;
+import com.ys.www.asscg.base.MyLog;
 import com.ys.www.asscg.http.HttpClient;
 import com.ys.www.asscg.util.Default;
 import com.ys.www.asscg.util.Utils;
@@ -30,7 +31,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 @SuppressLint("NewApi")
-public class LoginActivity_Scg extends BaseActivity implements OnClickListener {
+public class LoginActivity extends BaseActivity implements OnClickListener {
 
     EditTextWithDel login_zh_sx, login_mm_sx;
     Button login_sx;
@@ -40,40 +41,40 @@ public class LoginActivity_Scg extends BaseActivity implements OnClickListener {
     CheckBox cb_login_sx;
     LinearLayout et_dh, login_zh_ll, login_pwd_ll, remember_ll, login_ed_ll;
     Button login_sx_bt;
-    static LoginActivity_Scg mLoginActivity_Scg;
+    static LoginActivity mLoginActivity_Scg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_scg);
-        LoginActivity_Scg.mLoginActivity_Scg = this;
-        login_sx_bt = (Button) findViewById(R.id.login_sx_bt);
+        LoginActivity.mLoginActivity_Scg = this;
+        login_sx_bt = findViewById(R.id.login_sx_bt);
         login_sx_bt.setOnClickListener(this);
-        title = (TextView) findViewById(R.id.title);
+        title = findViewById(R.id.title);
         title.setText("登录");
-        login_zh_sx = (EditTextWithDel) findViewById(R.id.login_zh_sx);
-        login_mm_sx = (EditTextWithDel) findViewById(R.id.login_mm_sx);
+        login_zh_sx = findViewById(R.id.login_zh_sx);
+        login_mm_sx = findViewById(R.id.login_mm_sx);
         login_zh_sx.setPic(R.drawable.icon_03);
         login_mm_sx.setPic(R.drawable.icon_05);
 
-        iv = (ImageView) findViewById(R.id.title_right);
+        iv = findViewById(R.id.title_right);
         iv.setVisibility(View.VISIBLE);
         iv.setOnClickListener(this);
 
-        title_left1 = (ImageView) findViewById(R.id.title_left1);
+        title_left1 = findViewById(R.id.title_left1);
         title_left1.setOnClickListener(this);
 
         findViewById(R.id.forget_pwd_sx).setOnClickListener(this);
         findViewById(R.id.register_scg).setOnClickListener(this);
-        cb_login_sx = (CheckBox) findViewById(R.id.cb_login_sx);
+        cb_login_sx = findViewById(R.id.cb_login_sx);
         cb_login_sx.setChecked(true);
 
-        et_dh = (LinearLayout) findViewById(R.id.et_dh);
-        login_zh_ll = (LinearLayout) findViewById(R.id.login_zh_ll);
-        login_pwd_ll = (LinearLayout) findViewById(R.id.login_pwd_ll);
-        remember_ll = (LinearLayout) findViewById(R.id.remember_ll);
-        login_ed_ll = (LinearLayout) findViewById(R.id.login_ed_ll);
+        et_dh = findViewById(R.id.et_dh);
+        login_zh_ll = findViewById(R.id.login_zh_ll);
+        login_pwd_ll = findViewById(R.id.login_pwd_ll);
+        remember_ll = findViewById(R.id.remember_ll);
+        login_ed_ll = findViewById(R.id.login_ed_ll);
 
         // ValueAnimator animator = ValueAnimator.ofFloat(0, 180);
         // animator.setTarget(et_dh);
@@ -133,7 +134,7 @@ public class LoginActivity_Scg extends BaseActivity implements OnClickListener {
                 login_zh_sx_str = login_zh_sx.getText().toString();
                 login_mm_sx_str = login_mm_sx.getText().toString();
 
-                new Thread(){
+                new Thread() {
                     @Override
                     public void run() {
                         super.run();
@@ -163,7 +164,7 @@ public class LoginActivity_Scg extends BaseActivity implements OnClickListener {
     }
 
     public boolean isHasSh() {
-        SharedPreferences sharedPreferences = LoginActivity_Scg.this.getSharedPreferences("scenelist",
+        SharedPreferences sharedPreferences = LoginActivity.this.getSharedPreferences("scenelist",
                 Context.MODE_PRIVATE);
         // String liststr = sharedPreferences.getString(Utils.SCENE_LIST, "");
         String user = sharedPreferences.getString(Utils.SCENE_USER, "");
@@ -213,10 +214,81 @@ public class LoginActivity_Scg extends BaseActivity implements OnClickListener {
         }
         try {
             String s = HttpClient.post(url, jsonObject.toString());
-            Log.e("HttpClient",s);
+            if(!"".equals(s)){
+                str2json(s);
+            }else {
+                showCustomToast("登录失败");
+            }
+            Log.e("HttpClient", s);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void str2json(String s) {
+        try {
+            JSONObject json = new JSONObject(s);
+            if (json.has("status")) {
+                if (json.getInt("status") == 1) {
+                    MyLog.e("123", "登陆后的数据:" + json.toString());
+                    String username = json.optString("username");
+                    Long uid = json.getLong("uid");
+                    Default.userId = uid;
+                    String credits = json.optString("credits");
+                    if (cb_login_sx.isChecked()) {
+                        saveNP_SX(credits, username);
+                        Intent intent=new Intent(LoginActivity.this,MainTabActivity.class);
+                        startActivity(intent);
+                    } else {
+                        clearNP();
+                    }
+                    finish();
+                } else {
+                    showCustomToast(json.getString("message"));
+                }
+            } else {
+                showCustomToast(json.getString("message"));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 存储用户信息
+     */
+    public void saveNP_SX(String credits, String username) {
+
+        /**
+         * 加密存储用户信息
+         */
+        SharedPreferences sp = getSharedPreferences(Default.userPreferences, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString(Default.userName, login_zh_sx_str);
+        edit.putString(Default.userPassword, login_mm_sx_str);
+        edit.putString("credits", credits);
+        edit.putString("username", username);
+        edit.commit();
+
+    }
+
+    public void getNP() {
+        SharedPreferences sp = getSharedPreferences(Default.userPreferences, 0);
+        if (!sp.getString(Default.userName, "").equals("")) {
+            login_zh_sx.setText(sp.getString(Default.userName, ""));
+            login_mm_sx.setText(sp.getString(Default.userPassword, ""));
+            // mName = sp.getString(Default.userName, "");
+            // mPassword = sp.getString(Default.userPassword, "");
+        }
+
+    }
+
+    public void clearNP() {
+        SharedPreferences sp = getSharedPreferences(Default.userPreferences, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString(Default.userName, "");
+        edit.putString(Default.userPassword, "");
+        edit.commit();
     }
 
 }

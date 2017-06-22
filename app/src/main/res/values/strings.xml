@@ -16,4 +16,8 @@
     </string>
     <string name="login_info2">我要注册</string>
     <string name="login_info3">忘记密码?</string>
+    <string name="exit">再按一次退出</string>
+    <string name="news_title">新闻</string>
+    <string name="load">读取中</string>
+    <string name="newsTitle">平台公告</string>
 </resources>

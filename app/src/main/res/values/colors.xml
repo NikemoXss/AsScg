@@ -8,4 +8,16 @@
     <color name="back">#e7e7e8</color>
     <color name="zdwz">#27c679</color>
     <color name="gray">#696969</color>
+    <color name="tab_color">#8d8d8d</color>
+    <color name="new_bk">#f0f4f5</color>
+    <color name="title_black">#333333</color>
+    <color name="zdwzlb">#27c679</color>
+    <color name="main_color">#FC7B16</color>
+    <color name="gray_sx">#F5F5F5</color>
+    <color name="red">#ff0000</color>
+    <color name="index_kuang_red">#f76c6b</color>
+    <color name="RoundProgressBarback">#cccccc</color>
+    <color name="new_black_color">#333333</color>
+    <color name="new_gray_color">#999999</color>
+    <color name="line">#d3dede</color>
 </resources>

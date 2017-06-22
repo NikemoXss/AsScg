@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/top_head"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include layout="@layout/page_head_sx" />
+
+
+    </RelativeLayout>
+
+    <com.ys.www.asscg.view.MyListView
+        android:divider="#000"
+        android:dividerHeight="1px"
+        android:layout_margin="10dip"
+        android:layout_below="@+id/top_head"
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="@color/back" >
+    </com.ys.www.asscg.view.MyListView>
+
+</RelativeLayout>

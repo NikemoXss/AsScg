@@ -14,22 +14,22 @@ import okhttp3.Response;
  */
 
 public class HttpClient {
-    public static    OkHttpClient client = new OkHttpClient();
+    public static OkHttpClient client = new OkHttpClient();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     //get
-    String run(String url) throws IOException {
+    public static String get(String url) throws IOException {
         Request request = new Request.Builder().url(url).build();
         Response response = client.newCall(request).execute();
         if (response.isSuccessful()) {
             return response.body().string();
         } else {
-            throw new IOException("Unexpected code " + response);
+            return "";
         }
     }
 
     //post
-    public static   String post(String url, String json) throws IOException {
+    public static String post(String url, String json) throws IOException {
         RequestBody body = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
                 .url(url)
@@ -39,7 +39,7 @@ public class HttpClient {
         if (response.isSuccessful()) {
             return response.body().string();
         } else {
-            throw new IOException("Unexpected code " + response);
+            return "";
         }
     }
 
