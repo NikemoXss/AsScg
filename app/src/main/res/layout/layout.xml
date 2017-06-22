@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/title_color_sx" >
+
+        <TextView
+            android:id="@+id/title_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="7dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/b_paixu_back"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/tab_one"
+            style="@style/tab_bar"
+            android:drawableTop="@drawable/tab_home_attention_selector"
+            android:text="理财" />
+
+        <RadioButton
+            android:id="@+id/tab_two"
+            style="@style/tab_bar"
+            android:drawableTop="@drawable/tab_touzi_attention_selector"
+            android:text="个人账户" />
+
+        <RadioButton
+            android:id="@+id/tab_three"
+            style="@style/tab_bar"
+            android:drawableTop="@drawable/tab_setting_attention_selector"
+            android:text="设置" />
+    </RadioGroup>
+
+</LinearLayout>
