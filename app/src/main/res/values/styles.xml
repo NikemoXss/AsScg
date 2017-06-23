@@ -89,4 +89,29 @@
         <item name="android:textSize">13sp</item>
     </style>
 
+    <style name="black18Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="black16Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="orange16Text">
+        <item name="android:textColor">@color/orgine</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="red16Text">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="red18Text">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

@@ -20,4 +20,6 @@
     <color name="new_black_color">#333333</color>
     <color name="new_gray_color">#999999</color>
     <color name="line">#d3dede</color>
+    <color name="orgine">#FF613A</color>
+    <color name="black">#000000</color>
 </resources>

@@ -29,6 +29,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 import com.ys.www.asscg.R;
 import com.ys.www.asscg.activity.LoginActivity;
 import com.ys.www.asscg.activity.NewsListActivity;
+import com.ys.www.asscg.activity.TouziActivity;
 import com.ys.www.asscg.base.BaseFragment;
 import com.ys.www.asscg.http.HttpClient;
 import com.ys.www.asscg.util.Default;
@@ -568,8 +569,8 @@ public class IndexFragment_Scg extends BaseFragment implements OnClickListener, 
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.gg_loadmore:
-//			Intent intent = new Intent(getActivity(), TouziActivity.class);
-//			startActivity(intent);
+			Intent intent = new Intent(getActivity(), TouziActivity.class);
+			startActivity(intent);
                 break;
             case R.id.item_tt:
                 if (Default.userId == 0) {
