@@ -2,8 +2,11 @@ package com.ys.www.asscg.api;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
@@ -14,23 +17,22 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 
 import java.math.BigDecimal;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-
-
-
 
 public class SystenmApi {
 
@@ -166,6 +168,30 @@ public class SystenmApi {
 		return info;
 	}
 
+//	/**
+//	 * @param context
+//	 *            上下文
+//	 * @param name
+//	 *            用户名
+//	 * @param pwd
+//	 *            用户密码
+//	 */
+//	public static void saveUserLoginInfo(Context context, String name, String pwd) {
+//
+//		try {
+//			DesUtil des = new DesUtil();
+//			SharedPreferences sp = context.getSharedPreferences(Default.userPreferences, 0);
+//			Editor edit = sp.edit();
+//
+//			edit.putString(Default.userName, des.encrypt(name));
+//			edit.putString(Default.userPassword, des.encrypt(pwd));
+//			edit.commit();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 	// 是否连接WIFI
 	public static Boolean isWifiConnected(Context context) {
@@ -179,7 +205,41 @@ public class SystenmApi {
 		return false;
 	}
 
-
+//	public static String getIPStr(Context context, boolean wifi) {
+//
+//		String rtnStr = "";
+//		if (wifi) {
+//
+//			WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+//			// 判断wifi是否开启
+//			if (!wifiManager.isWifiEnabled()) {
+//				wifiManager.setWifiEnabled(true);
+//			}
+//			WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+//			int ipAddress = wifiInfo.getIpAddress();
+//
+//			rtnStr = intToIp(ipAddress);
+//		} else {
+//
+//			try {
+//				for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en
+//						.hasMoreElements();) {
+//					NetworkInterface intf = en.nextElement();
+//					for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+//						InetAddress inetAddress = enumIpAddr.nextElement();
+//						if (!inetAddress.isLoopbackAddress()) {
+//							rtnStr = inetAddress.getHostAddress().toString();
+//						}
+//					}
+//				}
+//			} catch (SocketException ex) {
+//				Log.e("WifiPreference IpAddress", ex.toString());
+//			}
+//
+//		}
+//
+//		return rtnStr;
+//	}
 
 	public static String GetHostIp() {
 		try {
@@ -198,14 +258,65 @@ public class SystenmApi {
 		return null;
 	}
 
+	public static String getLocalIpAddress() {
 
+		try {
+			for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+				NetworkInterface intf = en.nextElement();
+				for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+					InetAddress inetAddress = enumIpAddr.nextElement();
+					if (!inetAddress.isLoopbackAddress()//inetAddress instanceof Inet4Address
+							&& inetAddress instanceof Inet4Address) {
+						return inetAddress.getHostAddress().toString();
+					}
+				}
+			}
+		} catch (SocketException e) {
+			// TODO: handle exception
+			// Utils.log("WifiPreference IpAddress---error-" + e.toString());
+		}
+
+		return null;
+	}
 
 	private static String intToIp(int i) {
 
 		return (i & 0xFF) + "." + (i >> 8 & 0xFF) + "." + (i >> 16 & 0xFF) + "." + (i >> 24 & 0xFF);
 	}
 
-
+//	/**
+//	 * @param context
+//	 *            上下文
+//	 * @return returnList 0:userName 1:userPasswrod
+//	 */
+//	public static List<String> getUserSavedUserNameAndPwd(Context context) {
+//
+//		List<String> returnList = null;
+//
+//		SharedPreferences sp = context.getSharedPreferences(Default.userPreferences, 0);
+//		// 获取用户保存的信息
+//		String name = sp.getString(Default.userName, "");
+//		String pwd = sp.getString(Default.userPassword, "");
+//		boolean mRemember = sp.getBoolean(Default.userRemember, false);
+//
+//		// 判断获取到用户把保存的信息
+//		if (!name.equals("") && !pwd.equals("")) {
+//
+//			try {
+//				DesUtil des = new DesUtil();
+//				returnList = new ArrayList<String>();
+//				returnList.add(des.encrypt(name));
+//				returnList.add(des.encrypt(pwd));
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//
+//		}
+//
+//		return returnList;
+//
+//	}
 
 	/** 注册用户名判断 */
 	public static int ByteLenth(String name) {
@@ -289,8 +400,21 @@ public class SystenmApi {
 
 		return returnStr.toString();
 	}
-
-
+//
+//	/**
+//	 * 清楚用户存储的信息
+//	 *
+//	 * @param context
+//	 */
+//	public void cleanUserSaveInfo(Context context) {
+//
+//		SharedPreferences sp = context.getSharedPreferences(Default.userPreferences, 0);
+//		Editor edit = sp.edit();
+//		edit.putString(Default.userName, "");
+//		edit.putString(Default.userPassword, "");
+//		edit.putBoolean(Default.userRemember, false);
+//		edit.commit();
+//	}
 
 	/**
 	 * 图片 圆角
@@ -410,7 +534,28 @@ public class SystenmApi {
 		String regex = "[0-9]{18}";
 		return text.matches(regx) || text.matches(reg1) || text.matches(regex);
 	}
+    @SuppressWarnings("ResourceType")
+	public static ActivityInfo getBrowserApp(Context context) {
+		String default_browser = "android.intent.category.DEFAULT";
+		String browsable = "android.intent.category.BROWSABLE";
+		String view = "android.intent.action.VIEW";
 
+		Intent intent = new Intent(view);
+		intent.addCategory(default_browser);
+		intent.addCategory(browsable);
+		Uri uri = Uri.parse("http://");
+		intent.setDataAndType(uri, null);
+
+		// 找出手机当前安装的所有浏览器程序
+		List<ResolveInfo> resolveInfoList = context.getPackageManager().queryIntentActivities(intent,
+				PackageManager.GET_INTENT_FILTERS);
+		if (resolveInfoList.size() > 0) {
+			ActivityInfo activityInfo = resolveInfoList.get(0).activityInfo;
+			return activityInfo;
+		} else {
+			return null;
+		}
+	}
 
 	public static void hiddenKeyBoard(Activity context) {
 

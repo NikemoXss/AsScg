@@ -5,6 +5,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.ys.www.asscg.R;
+import com.ys.www.asscg.activity.PeopleInfoDataActivity;
 import com.ys.www.asscg.base.BaseFragment;
 import com.ys.www.asscg.http.HttpClient;
 import com.ys.www.asscg.util.Default;
@@ -133,8 +135,6 @@ public class AccountFragment_Scg extends BaseFragment implements OnClickListener
         }
     }
 
-    ;
-
     public JSONObject str2json(String s) {
         JSONObject json = null;
         try {
@@ -157,8 +157,8 @@ public class AccountFragment_Scg extends BaseFragment implements OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.item_personalset:// 用户设置
-//			Intent intent = new Intent(getActivity(), peopleInfoDataActivity.class);
-//			startActivity(intent);
+			Intent intent = new Intent(getActivity(), PeopleInfoDataActivity.class);
+			startActivity(intent);
                 break;
             case R.id.item_tzrecord:// 投资记录
 //			Intent intent1 = new Intent(getActivity(), InvestManagerStandardActivity.class);

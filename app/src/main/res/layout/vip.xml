@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/page_head_sx" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="10" >
+
+            <TextView
+                style="@style/black16Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="VIP费用:" />
+
+            <TextView
+                android:id="@+id/vip_fee"
+                style="@style/black16Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="0元/年" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/vip_kf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="10" >
+
+            <TextView
+                style="@style/black16Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:text="客服:" />
+
+            <TextView
+                android:id="@+id/show_selecet_name"
+                style="@style/black16Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="left"
+                android:text="选择客服" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TextView
+                style="@style/black16Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申请说明" />
+
+            <EditText
+                android:id="@+id/vip_info"
+                style="@style/black13Text"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="left"
+                android:hint="填写申请VIP会员的说明"
+                android:maxLines="30"
+                android:minLines="10" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/vip_button"
+            style="@style/white18Text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/btn_yj"
+            android:padding="10dp"
+            android:text="申请VIP" />
+    </LinearLayout>
+
+</LinearLayout>

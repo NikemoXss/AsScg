@@ -27,6 +27,7 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.ys.www.asscg.R;
+import com.ys.www.asscg.activity.BidItem;
 import com.ys.www.asscg.activity.LoginActivity;
 import com.ys.www.asscg.activity.NewsListActivity;
 import com.ys.www.asscg.activity.TouziActivity;
@@ -152,7 +153,7 @@ public class IndexFragment_Scg extends BaseFragment implements OnClickListener, 
                 footpointview.addView(footView);
                 footPointViews.add(footView);
 
-                final ImageView  iv = new ImageView(mainTabActivity);
+                final ImageView iv = new ImageView(mainTabActivity);
                 iv.setScaleType(ScaleType.FIT_XY);
                 iv.setTag(i);
 
@@ -569,18 +570,18 @@ public class IndexFragment_Scg extends BaseFragment implements OnClickListener, 
         // TODO Auto-generated method stub
         switch (v.getId()) {
             case R.id.gg_loadmore:
-			Intent intent = new Intent(getActivity(), TouziActivity.class);
-			startActivity(intent);
+                Intent intent = new Intent(getActivity(), TouziActivity.class);
+                startActivity(intent);
                 break;
             case R.id.item_tt:
                 if (Default.userId == 0) {
                     Intent intent1 = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent1);
                 } else {
-//				Intent intent1 = new Intent(getActivity(), BidItem_Scg.class);
-//				intent1.putExtra("id", id_tt);
-//				intent1.putExtra("type", shabiphp(type_tt));
-//				startActivity(intent1);
+                    Intent intent1 = new Intent(getActivity(), BidItem.class);
+                    intent1.putExtra("id", id_tt);
+                    intent1.putExtra("type", shabiphp(type_tt));
+                    startActivity(intent1);
                 }
 
                 break;
@@ -589,14 +590,14 @@ public class IndexFragment_Scg extends BaseFragment implements OnClickListener, 
                     Intent intent1 = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent1);
                 } else {
-//				Intent intent2 = new Intent(getActivity(), BidItem_Scg.class);
-//				intent2.putExtra("id", id_yy);
-//				intent2.putExtra("type", shabiphp(type_yy));
-//				startActivity(intent2);
+                    Intent intent2 = new Intent(getActivity(), BidItem.class);
+                    intent2.putExtra("id", id_yy);
+                    intent2.putExtra("type", shabiphp(type_yy));
+                    startActivity(intent2);
                 }
                 break;
             case R.id.autoVerticalScrollTextView:
-			getActivity().startActivity(new Intent(getActivity(), NewsListActivity.class));
+                getActivity().startActivity(new Intent(getActivity(), NewsListActivity.class));
                 break;
             default:
 

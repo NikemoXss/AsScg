@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    android:orientation="vertical" >
+
+    <include layout="@layout/page_head_sx" />
+
+    <RelativeLayout
+        android:id="@+id/rl_yhang"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black18Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bank"
+            android:textColor="@color/new_black_color" />
+
+        <TextView
+            android:id="@+id/tv_yhang"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:text="@string/sw_bandding" />
+
+        <!-- <Button
+            android:id="@+id/bt_v1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" /> -->
+    </RelativeLayout>
+    <!-- android:background="@drawable/more_item_selector" -->
+
+    <RelativeLayout
+        android:id="@+id/rl_yhzh"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black18Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peo_info_withdrawal_11"
+            android:textColor="@color/new_black_color" />
+
+        <TextView
+            android:id="@+id/tv_yhzh"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:text="@string/sw_bandding" />
+        <!--
+                    <Button
+                    android:id="@+id/bt_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                  />
+        -->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_szsf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black18Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/khyh_provinces"
+            android:textColor="@color/new_black_color" />
+
+        <TextView
+            android:id="@+id/tv_szsf"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:text="@string/sw_bandding" />
+
+        <!-- <Button
+            android:id="@+id/bt_v3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" /> -->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_szcity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black18Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/khyh_city"
+            android:textColor="@color/new_black_color" />
+
+        <TextView
+            android:id="@+id/tv_szcity"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:text="@string/sw_bandding" />
+        <!--
+                    <Button
+                    android:id="@+id/bt_v4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                   />
+        -->
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_szzh"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black18Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/khyh_zhihang"
+            android:textColor="@color/new_black_color" />
+
+        <TextView
+            android:id="@+id/tv_szzh"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:text="@string/sw_bandding" />
+        <!--
+                    <Button
+                    android:id="@+id/bt_v5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    />
+        -->
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_yhbind"
+        style="@style/white18Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/btn_yj"
+        android:padding="10dp"
+        android:text="@string/wbd" />
+    <!--
+          <Button
+        android:id="@+id/btn_updatebank"
+        style="@style/white18Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button_b_back1"
+        android:paddingRight="5dp"
+        android:text="@string/update_wbd"
+        android:visibility="gone" />
+    -->
+
+</LinearLayout>

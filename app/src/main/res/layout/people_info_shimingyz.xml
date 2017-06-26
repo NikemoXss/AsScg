@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+    android:orientation="vertical" >
+
+    <include layout="@layout/page_head_sx" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/black16Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/shiming" />
+
+    <RelativeLayout
+        android:id="@+id/rl_realname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black20Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/peo_real_name_1"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/tv_shsb"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/bt_v"
+            android:paddingRight="10dp"
+            android:text="@string/failure" />
+
+        <Button
+            android:id="@id/bt_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/more_item_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_idcard"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="12dp" >
+
+        <TextView
+            style="@style/black20Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idcard_number_1"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/tv_idcard"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/bt_v"
+            android:paddingRight="10dp"
+            android:text="@string/failure" />
+
+        <Button
+            android:id="@+id/bt_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/more_item_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_zjsh"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dip"
+        android:layout_marginTop="1dip"
+        android:background="@drawable/button_p_kuang4"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/black20Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/zhengjianshenhe"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/tv_zjsh"
+            style="@style/gray16Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/bt_v"
+            android:paddingRight="10dp"
+            android:text="@string/failure" />
+
+        <Button 
+            android:id="@id/bt_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/more_item_selector" />
+    </RelativeLayout>
+
+</LinearLayout>
