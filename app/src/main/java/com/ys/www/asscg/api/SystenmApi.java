@@ -23,6 +23,9 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 
+import com.ys.www.asscg.R;
+import com.ys.www.asscg.util.Default;
+
 import java.math.BigDecimal;
 import java.net.Inet4Address;
 import java.net.InetAddress;
@@ -33,6 +36,8 @@ import java.util.List;
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 public class SystenmApi {
 
@@ -450,44 +455,44 @@ public class SystenmApi {
 		return bitmap2;
 	}
 
-//	/***
-//	 * 显示分享界面
-//	 *
-//	 * @param context
-//	 * @param title
-//	 * @param Contenttext
+	/***
+	 * 显示分享界面
+	 *
+	 * @param context
+	 * @param title
+	 * @param Contenttext
 //	 * @param shareURL
-//	 */
-//	public static void showShareView(Context context, String title, String Contenttext, String url) {
-////		ShareSDK.initSDK(context);
-//		OnekeyShare oks = new OnekeyShare();
-//		// 关闭sso授权
-//		oks.disableSSOWhenAuthorize();
-//		oks.setTitleUrl(url);
-//		oks.setTitle(title);
-//		oks.setText(Contenttext);
-//		oks.setImageUrl(Default.yu+"UF/data/logo1.png");
-//		// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-//		// URL url1 = context.getClassLoader().getResource("logo1.png");
-//		// oks.setImagePath(url1.getPath());// 确保SDcard下面存在此张图片
-//		// Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
-//		// R.drawable.logo1);
-//		// Uri uri =
-//		// Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(),
-//		// bitmap, null,null));
-//		// oks.setImagePath(uri.getPath());// 确保SDcard下面存在此张图片
-//		// url仅在微信（包括好友和朋友圈）中使用
-//		oks.setUrl(url);
-//		// comment是我对这条分享的评论，仅在人人网和QQ空间使用
-//		// oks.setComment("我是测试评论文本");
-//		// site是分享此内容的网站名称，仅在QQ空间使用
-//		oks.setSite(context.getString(R.string.app_name));
-//		// siteUrl是分享此内容的网站地址，仅在QQ空间使用
-//		oks.setSiteUrl(url);
-//		// activity.id);
-//		// 启动分享GUI
-//		oks.show(context);
-//	}
+	 */
+	public static void showShareView(Context context, String title, String Contenttext, String url) {
+//		ShareSDK.initSDK(context);
+		OnekeyShare oks = new OnekeyShare();
+		// 关闭sso授权
+		oks.disableSSOWhenAuthorize();
+		oks.setTitleUrl(url);
+		oks.setTitle(title);
+		oks.setText(Contenttext);
+		oks.setImageUrl(Default.yu+"UF/data/logo1.png");
+		// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+		// URL url1 = context.getClassLoader().getResource("logo1.png");
+		// oks.setImagePath(url1.getPath());// 确保SDcard下面存在此张图片
+		// Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(),
+		// R.drawable.logo1);
+		// Uri uri =
+		// Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(),
+		// bitmap, null,null));
+		// oks.setImagePath(uri.getPath());// 确保SDcard下面存在此张图片
+		// url仅在微信（包括好友和朋友圈）中使用
+		oks.setUrl(url);
+		// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+		// oks.setComment("我是测试评论文本");
+		// site是分享此内容的网站名称，仅在QQ空间使用
+		oks.setSite(context.getString(R.string.app_name));
+		// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+		oks.setSiteUrl(url);
+		// activity.id);
+		// 启动分享GUI
+		oks.show(context);
+	}
 
 	/**
 	 * 获取版本号

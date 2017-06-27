@@ -157,12 +157,12 @@ public class AccountFragment_Scg extends BaseFragment implements OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.item_personalset:// 用户设置
-			Intent intent = new Intent(getActivity(), PeopleInfoDataActivity.class);
-			startActivity(intent);
+                Intent intent = new Intent(getActivity(), PeopleInfoDataActivity.class);
+                startActivity(intent);
                 break;
             case R.id.item_tzrecord:// 投资记录
-//			Intent intent1 = new Intent(getActivity(), InvestManagerStandardActivity.class);
-//			startActivity(intent1);
+//                Intent intent1 = new Intent(getActivity(), InvestManagerStandardActivity.class);
+//                startActivity(intent1);
                 break;
             case R.id.item_jyjl:// 交易记录
 //			startActivity(new Intent(getActivity(), PeopleInfoJiaoYi_New.class));

@@ -15,6 +15,7 @@ import com.ys.www.asscg.activity.AboutUsActivity;
 import com.ys.www.asscg.activity.ContactUsActivity;
 import com.ys.www.asscg.activity.FeedbackActivity;
 import com.ys.www.asscg.activity.LoginActivity;
+import com.ys.www.asscg.api.SystenmApi;
 import com.ys.www.asscg.base.BaseFragment;
 import com.ys.www.asscg.http.HttpClient;
 import com.ys.www.asscg.util.Default;
@@ -72,8 +73,8 @@ public class SetFragment_Scg extends BaseFragment implements OnClickListener {
                 }.start();
                 break;
             case R.id.item_shareapp:
-                //SystenmApi.showShareView(getActivity(), "苏常网APP，随时随地掌握你的财富", "手机移动理财的指尖神器，帮您在“拇指时代”指点钱途，“掌握财富”。",
-//                "http://www.czsuchang.com/Member/Common/AppRegister?invite=" + Default.userId);//http://www.czsuchang.com/Member/Common/AppRegister?invite=881
+                SystenmApi.showShareView(getActivity(), "苏常网APP，随时随地掌握你的财富", "手机移动理财的指尖神器，帮您在“拇指时代”指点钱途，“掌握财富”。",
+                "http://www.czsuchang.com/Member/Common/AppRegister?invite=" + Default.userId);//http://www.czsuchang.com/Member/Common/AppRegister?invite=881
                 break;
             case R.id.item_contactus:
                 Intent intent = new Intent(getActivity(), ContactUsActivity.class);
@@ -141,7 +142,6 @@ public class SetFragment_Scg extends BaseFragment implements OnClickListener {
                             // 获取新版本
                         } else if (response.getInt("status") == 0) {
                             // 另起后台线程 下载新版APP
-
                         } else {
                             showCustomToast(response.getString("message"));
                         }

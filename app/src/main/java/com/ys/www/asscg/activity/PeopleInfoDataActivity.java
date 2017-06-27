@@ -1,4 +1,4 @@
-﻿/**
+/**
  *
  */
 package com.ys.www.asscg.activity;
